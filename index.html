@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quản lý âm nhạc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../QLAN/styles.css">
+    <link rel="shortcut icon" href="icon_QLAN.ico" type="image/x-icon">=
+  </head>
+  <body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="btn-group">
+                    <a href="#" class="btn btn-warning btn-lg active" aria-current="page" onclick="show(this, 'Nhacsi')">Nhạc sĩ</a>
+                    <a href="#" class="btn btn-warning btn-lg" onclick="show(this, 'Casi')">Ca sĩ</a>
+                    <a href="#" class="btn btn-warning btn-lg" onclick="show(this, 'Bannhac')">Bản nhạc</a>
+                    <a href="#" class="btn btn-warning btn-lg" onclick="show(this, 'Banthuam')">Bản thu âm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="hCasi">
+        <div class="row">
+            <div class="col-12 text-center fs-1 fw-bold text-warning">
+                QUẢN LÍ DANH SÁCH CÁC CA SĨ
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Tên ca sĩ:
+            </div>
+            <div class="col-7">    
+                <input type="text" id="tencasi" class="form-control fs-5 border-1 border-black focus-ring focus-ring-light" aria-label="Text input with checkbox" placeholder="Nhập tên ca sĩ">         
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-3 fs-3 text-end">
+            
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-warning btn-lg" id="nhapCasi">Nhập</button>
+                <button type="button" class="btn btn-warning btn-lg" id="timCasi">Tìm</button>
+                <button type="button" class="btn btn-warning btn-lg" id="xoaCasi">Xóa</button>
+                <button type="button" class="btn btn-danger btn-lg" id="lammoiCasi">Làm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="bCasi">
+        <div class="row">
+            <div class="col-12 ">
+                <table class="table table-bordered border-black caption-top" id="bangcasi">
+                    <thead class="text-center fs-4">
+                      <tr class="table-dark">
+                        <th class="fit">Xóa</th>
+                        <th class="fit">Sửa</th>
+                        <th class="fit">Mã</th>
+                        <th>Tên ca sĩ</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fs-5">
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="hNhacsi">
+        <div class="row">
+            <div class="col-12 text-center fs-1 fw-bold text-warning">
+                QUẢN LÍ DANH SÁCH CÁC NHẠC SĨ
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Tên nhạc sĩ:
+            </div>
+            <div class="col-7">    
+                <input type="text" id="tennhacsi" class="form-control fs-5 border-1 border-black focus-ring focus-ring-light" aria-label="Text input with checkbox" placeholder="Nhập tên nhạc sĩ">         
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-3 fs-3 text-end">
+            
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-warning btn-lg" id="nhapNhacsi">Nhập</button>
+                <button type="button" class="btn btn-warning btn-lg" id="timNhacsi">Tìm</button>
+                <button type="button" class="btn btn-warning btn-lg" id="xoaNhacsi">Xóa</button>
+                <button type="button" class="btn btn-danger btn-lg" id="lammoiNhacsi">Làm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="bNhacsi">
+        <div class="row">
+            <div class="col-12 ">
+                <table class="table table-bordered border-black caption-top" id="nhacsi">
+                    <thead class="text-center fs-4">
+                      <tr class="table-dark">
+                        <th class="fit">Xóa</th>
+                        <th class="fit">Sửa</th>
+                        <th class="fit">Mã</th>
+                        <th>Tên nhạc sĩ</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fs-5">
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="hBannhac">
+        <div class="row">
+            <div class="col-12 text-center fs-1 fw-bold text-warning">
+                QUẢN LÍ DANH SÁCH CÁC BẢN NHẠC
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Tên bản nhạc:
+            </div>
+            <div class="col-7">    
+                <input type="text" id="tenbannhac" class="form-control fs-5 border-1 border-black focus-ring focus-ring-light" aria-label="Text input with checkbox" placeholder="Nhập tên bản nhạc">         
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Nhạc sĩ: 
+            </div>
+            <div class="col-4">
+                <select class="form-select fs-5 border border-1 border-black focus-ring focus-ring-light" aria-label="Default select example" id="bangnhacsi">
+                    <option value="-1" disabled selected hidden>Chọn</option>
+                </select>                
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-3 fs-3 text-end">
+            
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-warning btn-lg" id="nhapBannhac">Nhập</button>
+                <button type="button" class="btn btn-warning btn-lg" id="timBannhac">Tìm</button>
+                <button type="button" class="btn btn-warning btn-lg" id="xoaBannhac">Xóa</button>
+                <button type="button" class="btn btn-danger btn-lg" id="lammoiBannhac">Làm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="bBannhac">
+        <div class="row">
+            <div class="col-12 ">
+                <table class="table table-bordered border-black caption-top" id="bangbannhac">
+                    <thead class="text-center fs-4">
+                      <tr class="table-dark">
+                        <th class="fit">Xóa</th>
+                        <th class="fit">Sửa</th>
+                        <th class="fit">Mã</th>
+                        <th>Bản nhạc</th>
+                        <th>Nhạc sĩ</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fs-5">
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="hBanthuam">
+        <div class="row">
+            <div class="col-12 text-center fs-1 fw-bold text-warning">
+                QUẢN LÍ DANH SÁCH CÁC BẢN THU ÂM
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Bản nhạc:
+            </div>
+            <div class="col-7">
+                <select class="form-select fs-5 border-1 border-black focus-ring focus-ring-light" aria-label="Default select example" id="bannhac">
+                    <option value="-1" disabled selected hidden>Chọn</option>
+                </select>                
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3 fs-3 text-end">
+                Ca sĩ: 
+            </div>
+            <div class="col-4">
+                <select class="form-select fs-5 border border-1 border-black focus-ring focus-ring-light" aria-label="Default select example" id="casi">
+                    <option value="-1" disabled selected hidden>Chọn</option>
+                </select>                
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-3 fs-3 text-end">
+            
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-warning btn-lg" id="nhap">Nhập</button>
+                <button type="button" class="btn btn-warning btn-lg" id="tim">Tìm</button>
+                <button type="button" class="btn btn-warning btn-lg" id="xoa">Xóa</button>
+                <button type="button" class="btn btn-danger btn-lg" id="lammoi">Làm mới</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 d-none" id="bBanthuam">
+        <div class="row">
+            <div class="col-12 ">
+                <table class="table table-bordered border-black caption-top" id="banthuam">
+                    <thead class="text-center fs-4">
+                      <tr class="table-dark">
+                        <th class="fit">Xóa</th>
+                        <th class="fit">Sửa</th>
+                        <th class="fit">Mã</th>
+                        <th>Bản nhạc</th>
+                        <th>Ca sĩ</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fs-5">
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>\
+    <script src="script.js"></script>
+  </body>
+</html>
